@@ -2,6 +2,7 @@ package com.utilities;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -84,5 +85,19 @@ public class Utilities
 		driver.findElement(locator).sendKeys(text);
 	}
 	
+	public void selectHamburgerMenuOptionByText(By locator, String Option) 
+	{
+	    List<WebElement> elements = driver.findElements(locator);
+	    boolean isFound = false;
 
+	    for (WebElement element : elements) 
+	    {
+	        if (element.getText().trim().equalsIgnoreCase(Option)) 
+	        {
+	            element.click();
+	            break;
+	        }
+	    }
+	
+	}
 }

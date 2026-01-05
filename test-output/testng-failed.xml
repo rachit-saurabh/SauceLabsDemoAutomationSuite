@@ -6,9 +6,11 @@
       <class name="com.tests.loginPageTest">
         <methods>
           <include name="initialize"/>
+          <include name="closeReport"/>
+          <include name="verifyLogoutFunctionality"/>
           <include name="setUp"/>
           <include name="tearDown"/>
-          <include name="verifySuccessLogin"/>
+          <include name="verifySuccessProductOrderE2E"/>
         </methods>
       </class> <!-- com.tests.loginPageTest -->
     </classes>

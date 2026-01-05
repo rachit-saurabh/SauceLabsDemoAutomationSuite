@@ -2,7 +2,6 @@ package com.tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import com.Base.Base;
 import com.pages.CartPage;
 import com.pages.HomePage;
@@ -10,17 +9,17 @@ import com.pages.loginPage;
 
 public class loginPageTest extends Base
 {
-	
 	loginPage lp;
 	HomePage hp;
 	CartPage cp;
 	
 	@Test
-	public void verifySuccessProductOrderE2E() throws InterruptedException 
+	public void verifySuccessProductOrderE2E() throws InterruptedException
 	{
 		lp = new loginPage(driver);
 		hp = new HomePage(driver);
 		cp = new CartPage(driver);
+		
 		lp.enterUserName();
 		lp.enterPassword();
 		lp.clickOnLoginBtn();
@@ -34,13 +33,45 @@ public class loginPageTest extends Base
 		cp.enterFirstName();
 		cp.enterLastName();
 		cp.enterPostalCode();
-		Thread.sleep(1000);
 		cp.clickOnContinueButton();
-		Thread.sleep(1000);
 		cp.clickOnFinishButton();
 		cp.verifySuccessMessage();
 		Assert.assertEquals(cp.verifySuccessMessage(), "Thank you for your order!");
-		Thread.sleep(2000);
 	}
 
+	@Test
+	public void verifyLogoutFunctionality() throws Exception 
+	{
+		lp = new loginPage(driver);
+		hp = new HomePage(driver);
+		lp.enterUserName();
+		lp.enterPassword();
+		lp.clickOnLoginBtn();
+		hp.verifyHomePageHeader();
+		hp.clickOnHamburgerMenuIcon();
+		Thread.sleep(1000);
+		hp.selectLogoutHamburgerMenuOption();
+		lp.enterUserName();
+	}
+	
+	@Test
+	public void verifyAboutPageFunctionality() throws Exception 
+	{
+		lp = new loginPage(driver);
+		hp = new HomePage(driver);
+		lp.enterUserName();
+		lp.enterPassword();
+		lp.clickOnLoginBtn();
+		hp.verifyHomePageHeader();
+		hp.clickOnHamburgerMenuIcon();
+		Thread.sleep(1000);
+		hp.selectAboutHamburgerMenuOption();
+		String actualText = hp.getAboutActualPageText();
+		String expectedText = "Build apps users love with AI-driven quality";
+		Assert.assertEquals(actualText, expectedText);
+		driver.navigate().back();
+		Thread.sleep(2000);
+	}
+	
+	
 }
