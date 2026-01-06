@@ -1,7 +1,7 @@
 package com.pages;
 
+import java.util.ArrayList;
 import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -88,5 +88,17 @@ public class HomePage {
 		String aboutPage = driver.findElement(aboutPageText).getText();
 		return aboutPage;
 	}
+	
+	// Get actual menu items text from UI
+    public List<String> getHamburgerMenuItems() 
+    {
+        List<String> actualItems = new ArrayList<>();
+        List<WebElement> elements = driver.findElements(hambergurMenuOptions);
+        for (WebElement element : elements) 
+        {
+            actualItems.add(element.getText().trim());
+        }
+        return actualItems;
+    }
 
 }

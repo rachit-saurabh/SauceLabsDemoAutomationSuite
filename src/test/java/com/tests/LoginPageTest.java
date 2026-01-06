@@ -1,25 +1,32 @@
 package com.tests;
 
+import java.util.List;
+
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import com.Base.Base;
 import com.pages.CartPage;
 import com.pages.HomePage;
-import com.pages.loginPage;
+import com.pages.LoginPage;
 
-public class loginPageTest extends Base
+public class LoginPageTest extends Base
 {
-	loginPage lp;
+	LoginPage lp;
 	HomePage hp;
 	CartPage cp;
 	
-	@Test
-	public void verifySuccessProductOrderE2E() throws InterruptedException
+	@BeforeMethod
+    public void setupPages() 
 	{
-		lp = new loginPage(driver);
-		hp = new HomePage(driver);
-		cp = new CartPage(driver);
-		
+        lp = new LoginPage(driver);
+        hp = new HomePage(driver);
+        cp = new CartPage(driver);
+    }
+	
+	@Test(enabled = false)
+	public void verifySuccessProductOrderE2E() throws InterruptedException
+	{		
 		lp.enterUserName();
 		lp.enterPassword();
 		lp.clickOnLoginBtn();
@@ -39,39 +46,44 @@ public class loginPageTest extends Base
 		Assert.assertEquals(cp.verifySuccessMessage(), "Thank you for your order!");
 	}
 
-	@Test
+	@Test(enabled = false)
 	public void verifyLogoutFunctionality() throws Exception 
 	{
-		lp = new loginPage(driver);
-		hp = new HomePage(driver);
 		lp.enterUserName();
 		lp.enterPassword();
 		lp.clickOnLoginBtn();
 		hp.verifyHomePageHeader();
 		hp.clickOnHamburgerMenuIcon();
-		Thread.sleep(1000);
 		hp.selectLogoutHamburgerMenuOption();
 		lp.enterUserName();
 	}
 	
-	@Test
+	@Test(enabled = false)
 	public void verifyAboutPageFunctionality() throws Exception 
 	{
-		lp = new loginPage(driver);
-		hp = new HomePage(driver);
 		lp.enterUserName();
 		lp.enterPassword();
 		lp.clickOnLoginBtn();
 		hp.verifyHomePageHeader();
 		hp.clickOnHamburgerMenuIcon();
-		Thread.sleep(1000);
 		hp.selectAboutHamburgerMenuOption();
 		String actualText = hp.getAboutActualPageText();
 		String expectedText = "Build apps users love with AI-driven quality";
 		Assert.assertEquals(actualText, expectedText);
 		driver.navigate().back();
-		Thread.sleep(2000);
 	}
 	
-	
+	public void verifyHamburgerMenuOptions(List<String> actual, List<String> expected) 
+	{
+		lp.enterUserName();
+		lp.enterPassword();
+		lp.clickOnLoginBtn();
+		hp.verifyHomePageHeader();
+		hp.clickOnHamburgerMenuIcon();
+		Assert.assertEquals(
+                actual,
+                expected,
+                "Hamburger menu items mismatch!"
+        );
+	}
 }

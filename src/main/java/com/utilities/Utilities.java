@@ -2,8 +2,8 @@ package com.utilities;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
-
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -98,6 +98,10 @@ public class Utilities
 	            break;
 	        }
 	    }
+	}
 	
+	public List<String> expectedHamburgerOptions() 
+	{
+		return(Arrays.asList("All Items", "About", "Logout", "Reset App State"));
 	}
 }

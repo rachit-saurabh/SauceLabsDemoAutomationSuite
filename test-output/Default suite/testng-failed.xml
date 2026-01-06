@@ -3,16 +3,18 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.tests.loginPageTest">
+      <class name="com.tests.LoginPageTest">
         <methods>
+          <include name="verifyAboutPageFunctionality"/>
           <include name="initialize"/>
-          <include name="closeReport"/>
           <include name="verifyLogoutFunctionality"/>
+          <include name="closeReport"/>
+          <include name="setupPages"/>
           <include name="setUp"/>
           <include name="tearDown"/>
           <include name="verifySuccessProductOrderE2E"/>
         </methods>
-      </class> <!-- com.tests.loginPageTest -->
+      </class> <!-- com.tests.LoginPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

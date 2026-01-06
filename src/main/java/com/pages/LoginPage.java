@@ -7,12 +7,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.utilities.Utilities;
 
-public class loginPage {
+public class LoginPage 
+{
 	
 	public WebDriver driver;
 	Utilities util;
 	
-	public loginPage(WebDriver driver) 
+	public LoginPage(WebDriver driver) 
 	{
 		this.driver = driver;
 		this.util = new Utilities(driver);

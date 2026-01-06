@@ -2,7 +2,6 @@ package com.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
 import com.utilities.Utilities;
 
 public class CartPage {
@@ -77,7 +76,4 @@ public class CartPage {
 		util.waitingForElementToBeVisible(successMessage);
 		return(driver.findElement(successMessage).getText());
 	}
-	
-	
-
 }
