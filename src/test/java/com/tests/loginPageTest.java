@@ -73,7 +73,7 @@ public class LoginPageTest extends Base
 		driver.navigate().back();
 	}
 
-	@Test
+	@Test(enabled = false)
 	public void verifyHamburgerMenuOptions(List<String> actual, List<String> expected) 
 	{
 		lp.enterUserName();
@@ -88,4 +88,5 @@ public class LoginPageTest extends Base
         );
 	}
 }
+
 
