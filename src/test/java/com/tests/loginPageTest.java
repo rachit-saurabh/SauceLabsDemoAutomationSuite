@@ -24,7 +24,7 @@ public class LoginPageTest extends Base
         cp = new CartPage(driver);
     }
 	
-	@Test(enabled = false)
+	@Test
 	public void verifySuccessProductOrderE2E() throws InterruptedException
 	{		
 		lp.enterUserName();
@@ -46,7 +46,7 @@ public class LoginPageTest extends Base
 		Assert.assertEquals(cp.verifySuccessMessage(), "Thank you for your order!");
 	}
 
-	@Test(enabled = false)
+	@Test
 	public void verifyLogoutFunctionality() throws Exception 
 	{
 		lp.enterUserName();
@@ -58,7 +58,7 @@ public class LoginPageTest extends Base
 		lp.enterUserName();
 	}
 	
-	@Test(enabled = false)
+	@Test
 	public void verifyAboutPageFunctionality() throws Exception 
 	{
 		lp.enterUserName();
@@ -72,7 +72,8 @@ public class LoginPageTest extends Base
 		Assert.assertEquals(actualText, expectedText);
 		driver.navigate().back();
 	}
-	
+
+	@Test
 	public void verifyHamburgerMenuOptions(List<String> actual, List<String> expected) 
 	{
 		lp.enterUserName();
@@ -87,3 +88,4 @@ public class LoginPageTest extends Base
         );
 	}
 }
+
