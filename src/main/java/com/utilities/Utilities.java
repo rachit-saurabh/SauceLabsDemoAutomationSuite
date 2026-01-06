@@ -50,7 +50,7 @@ public class Utilities
 		alert.dismiss();
 	}
 	
-	public void handleAlertInputFields(String username, String password) 
+	public void handleAlertInputFields(String username, String password)
 	{
 		Alert alert = driver.switchTo().alert();
 		alert.sendKeys(username);
@@ -73,19 +73,19 @@ public class Utilities
 	    Files.copy(src, dest);
 	}
 	
-	public void scrollToElement(By locator) 
+	public void scrollToElement(By locator)
 	{
 	    WebElement element = driver.findElement(locator);
 	    JavascriptExecutor js = (JavascriptExecutor) driver;
 	    js.executeScript("arguments[0].scrollIntoView(true);", element);
 	}
 	
-	public void enterTextIntoTextField(By locator, String text) 
+	public void enterTextIntoTextField(By locator, String text)
 	{
 		driver.findElement(locator).sendKeys(text);
 	}
 	
-	public void selectHamburgerMenuOptionByText(By locator, String Option) 
+	public void selectHamburgerMenuOptionByText(By locator, String Option)
 	{
 	    List<WebElement> elements = driver.findElements(locator);
 	    boolean isFound = false;
@@ -100,7 +100,7 @@ public class Utilities
 	    }
 	}
 	
-	public List<String> expectedHamburgerOptions() 
+	public List<String> expectedHamburgerOptions()
 	{
 		return(Arrays.asList("All Items", "About", "Logout", "Reset App State"));
 	}
