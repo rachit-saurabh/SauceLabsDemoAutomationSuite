@@ -5,14 +5,12 @@
     <classes>
       <class name="com.tests.LoginPageTest">
         <methods>
-          <include name="verifyAboutPageFunctionality"/>
+          <include name="verifyHamburgerMenuOptions"/>
           <include name="initialize"/>
-          <include name="verifyLogoutFunctionality"/>
           <include name="closeReport"/>
           <include name="setupPages"/>
           <include name="setUp"/>
           <include name="tearDown"/>
-          <include name="verifySuccessProductOrderE2E"/>
         </methods>
       </class> <!-- com.tests.LoginPageTest -->
     </classes>
